@@ -1,0 +1,14 @@
+= render "shared/errors", obj: @tax 
+= form_for(@tax) do |f|
+  .grid-x.grid-padding-x
+    .large-12.cell
+      = f.label :tax_ratio ,"GST %"
+      = f.text_field :tax_ratio ,placeholder: "GST" 
+    .large-12.cell
+      = f.label :cgst_ratio ,"CGST %"
+      = f.text_field :cgst_ratio ,placeholder: "CGST"
+    .large-12s.cell
+      = f.label :sgst_ratio ,"SGST %"
+      = f.text_field :sgst_ratio ,placeholder: "SGST"
+  = f.submit :class => "button"
+  

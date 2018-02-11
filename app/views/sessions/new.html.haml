@@ -1,0 +1,29 @@
+.grid-container
+  .grid-x.grid-padding-x.align-center-middle.text-center{:style => "height: 150px;"}
+    .cell.small-12
+      %h3 Login
+  .grid-x.grid-padding-x
+    .large-6.medium-6.small-6.large-offset-3.cell
+      .callout
+        = form_for :session , url: login_path do |f|
+          .grid-container
+            .grid-x.grid-padding-x
+              .medium-12.cell
+                .grid-x
+                  = f.label :email
+                  .input-group
+                    %span.input-group-label
+                      %i.fa.fa-user{"aria-hidden" => "true"}
+                    = f.email_field :email, autofocus: true,  class: "input-group-field", placeholder: "Your email address"
+              .medium-12.cell
+                .grid-x
+                  = f.label :password
+                  .input-group
+                    %span.input-group-label
+                      %i.fa.fa-unlock-alt{"aria-hidden" => "true"}
+                    = f.password_field :password, autocomplete: "off", class: "input-group-field"
+                %p#passwordHelpText.help-text Your password must have at least 10 characters.
+              .medium-12.cell
+
+              .medium-12.cell
+                = f.submit "Login", class: "button expanded"

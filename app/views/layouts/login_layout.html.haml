@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+!!!
+%html.no-js{:dir => "ltr", :lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "ie=edge", "http-equiv" => "x-ua-compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %title Receipt Gen
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    %script{:src => "http://code.jquery.com/jquery-latest.min.js", :type => "text/javascript"}
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .grid-container
+      .margin-top
+        .grid-x.grid-padding-x
+          .large-8.medium-8.medium-offset-2.cell
+            = render "layouts/flash"
+        = yield
+    %script{:src => "https://use.fontawesome.com/a2bf64e623.js"}

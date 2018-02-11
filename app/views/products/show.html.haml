@@ -1,0 +1,18 @@
+.grid-x.grid-padding-x
+  .large-8.medium-8.medium-offset-2.cell
+    %h2 Product Detail
+    %hr/
+    .grid-x.grid-padding-x
+      .large-6.medium-6.cell
+        %h6
+          %strong Product Name:
+          = @product.name
+        %h6
+          %strong Product Sku:
+          = @product.sku
+        %h6
+          %strong Product Desciprtion:
+          = @product.description
+          
+.text-center
+  [ #{link_to 'Back to the Products' ,products_path} ]

@@ -1,0 +1,26 @@
+.grid-x.grid-padding-x
+  .large-8.medium-8.medium-offset-2.cell
+    .grid-x.grid-padding-x
+      .large-8.medium-8.cell
+        %h2 Taxes
+      .large-4.medium-4.cell
+        = link_to "Add tax rate", new_tax_path, class:"button"
+    %hr/
+    %table
+      %thead
+        %tr
+          %th{:width => "200"} GST (%)
+          %th CGST (%)
+          %th SGST (%)
+          %th.text-center{:colspan => 3} Action
+      %tbody
+        - @taxes.each do |tax|
+          %tr
+            %td= tax.tax_ratio 
+            %td= tax.cgst_ratio
+            %td= tax.sgst_ratio
+            %td{:width => "60"}= link_to "Edit", edit_tax_path(tax)
+            %td{:width => "60"}= link_to "Show", tax_path(tax)
+            %td{:width => "60"}= link_to "Delete", tax_path(tax) , method: :delete ,data: {confirm: "Are you sure"}
+.text-center
+  [ #{link_to 'Back to the dashboard' ,dashboard_path} ]

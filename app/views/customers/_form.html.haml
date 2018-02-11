@@ -1,0 +1,11 @@
+= render "shared/errors", obj: @customer 
+= form_for @customer , :html => {:class => 'form-horizontal', role: 'form'} do |f|
+  .grid-x.grid-padding-x
+    .large-12.cell
+      = f.label :name ,"Customer Name"
+      = f.text_field :name ,placeholder: "name"
+  .grid-x.grid-padding-x
+    .large-12.cell
+      = f.label :phone_no ,"Customer Phone No."
+      = f.text_field :phone_no
+  = f.submit :class => "button"

@@ -1,0 +1,14 @@
+= render "shared/errors", obj: @product 
+= form_for(@product) do |f|
+  .grid-x.grid-padding-x
+    .large-12.cell
+      = f.label :sku ,"Product Sku"
+      = f.text_field :sku ,placeholder: "Product Sku" 
+    .large-12.cell
+      = f.label :name ,"Product Name"
+      = f.text_field :name ,placeholder: "Product Name"
+    .large-12s.cell
+      = f.label :description ,"Product Description"
+      = f.text_area :description ,placeholder: "Product Description", rows: "3"
+  = f.submit :class => "button"
+  
