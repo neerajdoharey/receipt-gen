@@ -35,11 +35,9 @@ ActiveRecord::Schema.define(version: 20180210062327) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "customer_id"
     t.float "grand_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
 
   create_table "products", force: :cascade do |t|
