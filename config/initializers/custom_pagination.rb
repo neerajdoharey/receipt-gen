@@ -1,3 +1,6 @@
+require 'will_paginate/view_helpers/link_renderer'
+require 'will_paginate/view_helpers/action_view'
+
 class MyCustomLinkRenderer < WillPaginate::ActionView::LinkRenderer
   def html_container(html)
     tag(:nav, tag(:ul, html, class: "pagination text-center"))
