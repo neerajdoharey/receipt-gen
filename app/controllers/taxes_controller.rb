@@ -37,6 +37,6 @@ class TaxesController < ApplicationController
   end
 
   def tax_params
-  	params.require(:tax).permit(:tax_ratio, :cgst_ratio, :sgst_ratio)
+  	params.require(:tax).permit(:gst_ratio, :cgst_ratio, :sgst_ratio)
   end
 end

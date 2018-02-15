@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
   before_action :required_user
   def index
-    @customers = Customer.all
+    @customers = Customer.paginate(:page => params[:page], :per_page => 20)
   end
 
   def new

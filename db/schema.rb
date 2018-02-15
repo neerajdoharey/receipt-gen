@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180210062327) do
+ActiveRecord::Schema.define(version: 20180215062924) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -24,12 +24,16 @@ ActiveRecord::Schema.define(version: 20180210062327) do
     t.integer "order_id"
     t.integer "product_id"
     t.integer "quantity"
-    t.float "gst_per"
+    t.float "gst_ratio"
+    t.float "cgst_ratio"
+    t.float "sgst_ratio"
     t.float "gst_amount"
     t.float "discount"
     t.float "sub_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "rate"
+    t.float "total"
     t.index ["order_id"], name: "index_order_line_items_on_order_id"
     t.index ["product_id"], name: "index_order_line_items_on_product_id"
   end
@@ -38,6 +42,7 @@ ActiveRecord::Schema.define(version: 20180210062327) do
     t.float "grand_total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "customer_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -49,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180210062327) do
   end
 
   create_table "taxes", force: :cascade do |t|
-    t.float "tax_ratio"
+    t.float "gst_ratio"
     t.float "cgst_ratio"
     t.float "sgst_ratio"
     t.datetime "created_at", null: false

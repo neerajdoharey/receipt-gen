@@ -1,0 +1,19 @@
+.grid-x.grid-padding-x
+	.large-4.cell
+		= f.label :product_id 
+		= f.select(:product_id, Product.all.collect {|u| ["#{u.name} (#{u.sku})", u.id]}, :prompt => 'Select')
+	.large-2.cell
+		= f.label :gst_ratio,"GST (%)" 
+		= f.select(:gst_ratio, Tax.all.collect {|u| ["#{u.gst_ratio}", u.gst_ratio]}, :prompt => 'Select')
+	.large-1.cell
+		= f.label :quantity 
+		= f.text_field :quantity ,placeholder: "quantity", value: "1"
+	.large-2.cell
+		= f.label :discount 
+		= f.text_field :discount ,placeholder: "discount", value: "0"
+	.large-2.cell
+		= f.label :total 
+		= f.text_field :total ,placeholder: "Rate"
+	.large-1.cell.delete
+		= link_to 'Delete', '#', class: 'remove_record'
+		= f.hidden_field :_destroy
