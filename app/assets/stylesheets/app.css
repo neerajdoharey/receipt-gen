@@ -1,3 +1,11 @@
 .margin-top{margin-top: 20px;}
 .delete{padding-top: 30px;}
 .font13px{font-size: 13px;}
+
+body.pdf{font-family: "Helvetica Neue",Helvetica,Roboto,Arial,sans-serif;}
+.pdf .invoice p{font-size: 11px;}
+.pdf .right { float: right;}
+.pdf .right-align{text-align: right;}
+.pdf .cell.medium-6{float: left;}
+.pdf .fifty-fifty{float: left; width: 50%;}
+.pdf .clear{ clear: both;}

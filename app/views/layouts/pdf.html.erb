@@ -3,10 +3,10 @@
 <head>
 <title>PDF</title>
   <%= wicked_pdf_stylesheet_link_tag "application"%>
-  <%= wicked_pdf_stylesheet_link_tag "pdf"%>
+
   <%= wicked_pdf_javascript_include_tag "application" %>
 </head>
-<body>
+<body class="pdf">
 
   <div class='grid-container'>
     <%= yield %>
