@@ -8,8 +8,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
-      flash[:success] = "Username details updated"
-      redirect_to articles_path
+      flash[:success] = "User details updated"
+      redirect_to edit_user_path(@user)
     else
       render 'edit'
     end
@@ -20,4 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def user_params
+    params.require(:user).permit(:address1, :address2, :city, :state, :pincode, :gstin)
+  end
 end

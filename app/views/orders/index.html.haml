@@ -8,20 +8,18 @@
           %th{:width => "100"} Date
           %th Name
           %th Phone No
-          %th Amount
-          %th Order History
+          %th.float-right Amount
+          %th{:colspan => 2} Order History
       %tbody
         - @orders.each do |order|
           %tr
             %td= order.created_at.to_time.strftime("%d-%m-%Y")
             %td= order.customer.name
             %td= order.customer.phone_no
-            %td= order.grand_total
+            %td.float-right= number_to_currency_rs(order.grand_total)
             %td= link_to "View" , order_path(order)
-            / %td= order["created_at"].to_time.strftime("%d-%m-%Y")
-            / %td= order["name"]
-            / %td= order["address"]
-            / %td= link_to "View" , order_path(order["id"])
+            %td= link_to 'Download Invoice', order_path(order, :format => :pdf)
+
     = will_paginate
 .text-center
   [ #{link_to 'Back to the dashboard' ,root_path} ]

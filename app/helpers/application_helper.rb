@@ -17,4 +17,8 @@ module ApplicationHelper
     end
     super *[collection_or_options, options].compact
   end
+
+  def number_to_currency_rs(number)
+    number_to_currency(number, :unit => "Rs. ", :delimiter => ".")
+  end
 end

@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :orders
   resources :customers
   resources :taxes
-  get '/users/:id/edit', to: 'users#edit', as: 'preferences'
+
+  resources :users, only: [ :edit, :update] 
+  # get '/users/:id/edit', to: 'users#edit', as: 'preferences'
 
   # resources :users, only: [:update ,:edit]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

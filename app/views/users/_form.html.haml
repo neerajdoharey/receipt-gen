@@ -1,0 +1,23 @@
+= render "shared/errors", obj: @user
+= form_for(@user) do |f|
+  .grid-x.grid-padding-x
+    .large-6.cell
+      = f.label :address1 
+      = f.text_field :address1 ,placeholder: "Address1" 
+    .large-6.cell
+      = f.label :address2 
+      = f.text_field :address2 ,placeholder: "Address2"
+    .large-6.cell
+      = f.label :city 
+      = f.text_field :city ,placeholder: "City"
+    .large-6.cell
+      = f.label :state 
+      = f.text_field :state ,placeholder: "State"
+    .large-6.cell
+      = f.label :pincode 
+      = f.text_field :pincode ,placeholder: "Pincode"
+    .large-6.cell
+      = f.label :gstin, "GSTIN"
+      = f.text_field :gstin ,placeholder: "GSTIN"
+  = f.submit "Update Preferences", :class => "button"
+  

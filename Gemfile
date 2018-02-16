@@ -30,7 +30,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 # Pagination
 gem 'will_paginate', '~> 3.1.0'
-
+#pdf Generator
+gem 'wicked_pdf', '~> 1.1'
+gem 'wkhtmltopdf-binary'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :production do

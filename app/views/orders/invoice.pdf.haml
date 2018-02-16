@@ -1,13 +1,9 @@
 .grid-x.grid-padding-x
   .large-8.medium-8.medium-offset-2.cell
+    %center
+      %h2 Invoice
     .grid-x
-      .cell.medium-9
-        %h2 Order # #{@order.id}
-      .cell.medium-3
-        = link_to 'Download PDF', order_path(@order, :format => :pdf) ,class:"right"
-    %hr/
-    .grid-x
-      .cell.medium-6
+      .cell.medium-6.fifty-fifty
         %p 
           = current_user.address1 
           %br/
@@ -20,17 +16,17 @@
           %br/
           %strong GSTIN:
           = current_user.gstin
-      .cell.medium-6
-        = image_tag  "logo.png" , width:"200" ,class:"right"
-    .grid-x
-      .cell.medium-6
+      .cell.medium-6.fifty-fifty
+        = wicked_pdf_image_tag  "logo.png" , width:"200", class: "right"
+    .grid-x.clear
+      .cell.medium-6.fifty-fifty
         %p
           %strong Customer Name : 
           = @order.customer.name
           %br/
           %strong Customer Phone No : 
           = @order.customer.phone_no
-      .cell.medium-6
+      .cell.medium-6.fifty-fifty
         %p.right-align
           %strong Order No : 
           = @order.id
@@ -49,7 +45,7 @@
           %th Discount
           %th Sub Total
           %th GST
-          %th.float-right Total
+          %th Total
       - sub_total_amount = 0
       - total_discount = 0
       - total_gst = 0
@@ -98,5 +94,4 @@
             Grand Total
           %td.float-right
             = @order.grand_total
-    .text-center
-      [ #{link_to 'Back to the Orders' ,orders_path} ]
+
