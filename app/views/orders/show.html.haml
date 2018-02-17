@@ -77,7 +77,7 @@
           %th.right-align{:colspan => 8}
             Total
           %td.float-right
-            = sub_total_amount
+            = sub_total_amount.round(2)
         %tr
           %th.right-align{:colspan => 8}
             Discount
@@ -87,16 +87,16 @@
           %th.right-align{:colspan => 8}
             Sub Total
           %td.float-right
-            = total_amount
+            = total_amount.round(2)
         %tr
           %th.right-align{:colspan => 8}
             GST
           %td.float-right
-            = total_gst
+            = total_gst.round(2)
         %tr
           %th.right-align{:colspan => 8}
             Grand Total
           %td.float-right
-            = @order.grand_total
+            = @order.grand_total.round(2)
     .text-center
       [ #{link_to 'Back to the Orders' ,orders_path} ]
