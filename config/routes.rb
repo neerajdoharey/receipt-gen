@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :customers
   resources :taxes
 
+  get 'customers/find_by_phone/:phone_no' => 'customers#find_by_phone'
+
   resources :users, only: [ :edit, :update] 
   # get '/users/:id/edit', to: 'users#edit', as: 'preferences'
 

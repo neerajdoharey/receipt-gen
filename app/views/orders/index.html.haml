@@ -14,8 +14,8 @@
         - @orders.each do |order|
           %tr
             %td= order.created_at.to_time.strftime("%d-%m-%Y")
-            %td= order.customer.name
-            %td= order.customer.phone_no
+            %td= order.customer.try(:name)
+            %td= order.customer.try(:phone_no)
             %td.float-right= number_to_currency_rs(order.grand_total)
             %td= link_to "View" , order_path(order)
             %td= link_to 'Download Invoice', order_path(order, :format => :pdf)

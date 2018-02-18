@@ -37,6 +37,6 @@ class OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:customer_id, order_line_items_attributes: OrderLineItem.attribute_names.map(&:to_sym).push(:_destroy))
+    params.require(:order).permit(customer_attributes: [:name, :phone_no], order_line_items_attributes: OrderLineItem.attribute_names.map(&:to_sym).push(:_destroy))
   end
 end

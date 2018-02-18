@@ -1,9 +1,17 @@
-= render "shared/errors", obj: @order 
+= render "shared/errors", obj: @order
+- @order.build_customer
 = form_for(@order) do |f|
   .grid-x.grid-padding-x
     .large-12.cell
-      = f.label :customer_id ,"Customer Name"
-      = f.select(:customer_id, Customer.all.collect {|u| ["#{u.name} (#{u.phone_no})", u.id]}, :prompt => 'Select')
+      = f.fields_for :customer do |builder|
+        .grid-x.grid-padding-x
+          .large-6.cell
+            = builder.label :phone_no, "Customer Phone No"
+            = builder.text_field :phone_no, id: :phone_no
+          .large-6.cell
+            = builder.label :customer_id, "Customer Name"
+            = builder.text_field :name, disabled: true, id: :name
+        
     .large-6.cell
   %h5 Order list
   %hr/

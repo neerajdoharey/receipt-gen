@@ -36,6 +36,12 @@ class CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
   end
 
+  def find_by_phone
+    customer = Customer.find_by(phone_no: params[:phone_no])
+    return render plain: customer.name if customer
+    render nothing: true, status: :bad_request
+  end
+
   private
   def category_params
     params.require(:customer).permit(:name,:phone_no)
